@@ -1,0 +1,100 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+    {
+        tag: "API REST",
+        title: "🏨 Booking API",
+        description: "Sistema completo de gestión de reservas con autenticación JWT, validación de datos robusta y documentación interactiva con Swagger.",
+        highlight: "Arquitectura escalable con patrón MVC y manejo de errores centralizado",
+        features: [
+            "CRUD completo de reservas",
+            "Autenticación y autorización con JWT",
+            "Validación de datos con class-validator",
+            "Documentación API con Swagger",
+            "Dockerizado para fácil deployment"
+        ],
+        tech: ["TypeScript", "NestJS", "PostgreSQL", "Prisma", "JWT", "Docker"],
+        githubUrl: "https://github.com/NicoGuerrero11/booking-API",
+        demoUrl: ""
+    },
+    {
+        tag: "OPTIMIZACIÓN",
+        title: "🌤️ Weather API + Redis Cache",
+        description: "API meteorológica optimizada con sistema de caché inteligente usando Redis. Reduce latencia en 98% y llamadas a APIs externas en 99%.",
+        highlight: "~2000ms sin cache → ~50ms con Redis",
+        features: [
+            "Sistema de caché con TTL configurable",
+            "Rate limiting para prevenir abuse",
+            "Fallback si API externa falla",
+            "Métricas de performance en tiempo real",
+            "Integración con OpenWeatherMap API"
+        ],
+        tech: ["Node.js", "Express", "Redis", "Axios", "Docker"],
+        githubUrl: "https://github.com/NicoGuerrero11/weather-api",
+        demoUrl: ""
+    },
+    {
+        tag: "CLI TOOL",
+        title: "🎬 TMDB CLI Tool",
+        description: "Herramienta de línea de comandos para buscar películas, series y actores usando la API de The Movie Database con interfaz colorida y profesional.",
+        highlight: "UX destacada con tablas coloridas, caché local y múltiples formatos de salida",
+        features: [
+            "Búsqueda de películas, series y personas",
+            "Información detallada con ratings",
+            "Contenido en tendencia (día/semana)",
+            "Interfaz colorida con Rich",
+            "Sistema de caché local"
+        ],
+        tech: ["Python", "Click", "Rich", "Requests", "TMDB API"],
+        githubUrl: "https://github.com/NicoGuerrero11/TMDB-CLI-Tool",
+        demoUrl: ""
+    }
+];
+---
+
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <p class="section-subtitle">Algunos de mis trabajos recientes</p>
+
+        <div class="projects-grid">
+            {projects.map(project => (
+                <ProjectCard {...project} />
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .projects {
+        padding: 6rem 0;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: var(--text-dim);
+        margin-bottom: 4rem;
+        font-size: 1.1rem;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

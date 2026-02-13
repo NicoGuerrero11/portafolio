@@ -1,0 +1,23 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+    <div class="container">
+        <p>© {currentYear} Nico Guerrero. Hecho con ☕ y mucho código.</p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        padding: 2rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    p {
+        color: var(--text-dim);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem;
+    }
+</style>

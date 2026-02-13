@@ -1,0 +1,171 @@
+---
+interface Props {
+    tag: string;
+    title: string;
+    description: string;
+    highlight: string;
+    features: string[];
+    tech: string[];
+    githubUrl: string;
+    demoUrl?: string;
+}
+
+const { tag, title, description, highlight, features, tech, githubUrl, demoUrl } = Astro.props;
+---
+
+<div class="project-card">
+    <span class="project-tag">{tag}</span>
+    <h3>{title}</h3>
+    <p>{description}</p>
+
+    <div class="highlight-box">
+        <strong>💡 Destaca:</strong> {highlight}
+    </div>
+
+    <ul class="project-features">
+        {features.map(feature => (
+            <li>{feature}</li>
+        ))}
+    </ul>
+
+    <div class="project-tech">
+        {tech.map(item => (
+            <span>{item}</span>
+        ))}
+    </div>
+
+    <div class="project-links">
+        <a href={githubUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+            GitHub →
+        </a>
+        {demoUrl && (
+            <a href={demoUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+                Demo →
+            </a>
+        )}
+    </div>
+</div>
+
+<style>
+    .project-card {
+        background: var(--bg-secondary);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        transform: scaleX(0);
+        transition: transform 0.3s;
+    }
+
+    .project-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+    }
+
+    .project-tag {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        background: var(--code-bg);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--accent);
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: var(--text-dim);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .highlight-box {
+        background: var(--code-bg);
+        border-left: 4px solid var(--accent);
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 4px;
+    }
+
+    .highlight-box strong {
+        color: var(--accent);
+    }
+
+    .project-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-features li {
+        padding: 0.5rem 0;
+        color: var(--text-dim);
+        font-size: 0.95rem;
+    }
+
+    .project-features li::before {
+        content: '▹ ';
+        color: var(--accent);
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+
+    .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-tech span {
+        padding: 0.3rem 0.8rem;
+        background: var(--code-bg);
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        background: var(--code-bg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+    }
+
+    .project-link:hover {
+        border-color: var(--accent);
+        transform: translateX(3px);
+    }
+</style>
