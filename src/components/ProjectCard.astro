@@ -8,23 +8,25 @@ interface Props {
     tech: string[];
     githubUrl: string;
     demoUrl?: string;
+    projectIndex: number;
 }
 
-const { tag, title, description, highlight, features, tech, githubUrl, demoUrl } = Astro.props;
+const { tag, title, description, highlight, features, tech, githubUrl, demoUrl, projectIndex } = Astro.props;
+const i = projectIndex;
 ---
 
 <div class="project-card">
-    <span class="project-tag">{tag}</span>
-    <h3>{title}</h3>
-    <p>{description}</p>
+    <span class="project-tag" data-i18n={`projects.${i}.tag`}>{tag}</span>
+    <h3 data-i18n={`projects.${i}.title`}>{title}</h3>
+    <p data-i18n={`projects.${i}.description`}>{description}</p>
 
     <div class="highlight-box">
-        <strong>💡 Destaca:</strong> {highlight}
+        <strong data-i18n="projectCard.highlights">💡 Destaca:</strong> <span data-i18n={`projects.${i}.highlight`}>{highlight}</span>
     </div>
 
     <ul class="project-features">
-        {features.map(feature => (
-            <li>{feature}</li>
+        {features.map((feature, fi) => (
+            <li data-i18n={`projects.${i}.feature.${fi}`}>{feature}</li>
         ))}
     </ul>
 

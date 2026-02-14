@@ -109,11 +109,11 @@ const projects = [
 
 <section id="projects" class="projects">
     <div class="container">
-        <h2 class="section-title">Proyectos Destacados</h2>
-        <p class="section-subtitle">Algunos de mis trabajos recientes</p>
+        <h2 class="section-title" data-i18n="projects.title">Proyectos Destacados</h2>
+        <p class="section-subtitle" data-i18n="projects.subtitle">Algunos de mis trabajos recientes</p>
 
         <div class="projects-grid">
-            {projects.map((project) => <ProjectCard {...project} />)}
+            {projects.map((project, index) => <ProjectCard {...project} projectIndex={index} />)}
         </div>
     </div>
 </section>

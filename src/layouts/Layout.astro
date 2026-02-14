@@ -20,6 +20,23 @@ const { title, description = "Desarrollador Backend especializado en Node.js, Py
 </head>
 <body>
     <slot />
+    <script>
+        import { applyTranslations, getLang } from '../i18n/i18n';
+        import { toggleLang } from '../i18n/i18n';
+
+        // Apply translations on initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTranslations();
+        });
+
+        // Also apply on page navigation (Astro View Transitions)
+        document.addEventListener('astro:after-swap', () => {
+            applyTranslations();
+        });
+
+        // Expose toggleLang globally for the button
+        (window as any).__toggleLang = toggleLang;
+    </script>
 </body>
 </html>
 
