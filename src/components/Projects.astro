@@ -1,12 +1,14 @@
 ---
-import ProjectCard from './ProjectCard.astro';
+import ProjectCard from "./ProjectCard.astro";
 
 const projects = [
     {
         tag: "PROYECTO FREELANCE",
         title: "🌐 Sitio Web Carobra",
-        description: "Sitio web corporativo desarrollado como proyecto freelance para Carobra Consultores Especializados, empresa líder en servicios financieros con más de 13 años de experiencia.",
-        highlight: "SEO Score: 100/100 en Lighthouse · Performance: 86/100 Real Experience Score",
+        description:
+            "Sitio web corporativo desarrollado como proyecto freelance para Carobra Consultores Especializados, empresa líder en servicios financieros con más de 13 años de experiencia.",
+        highlight:
+            "SEO Score: 100/100 en Lighthouse · Performance: 86/100 Real Experience Score",
         features: [
             "Schema.org completo (Organization, JobPosting, Breadcrumbs, Testimonios)",
             "Formularios con validación y envío por email transaccional con Resend",
@@ -14,17 +16,26 @@ const projects = [
             "Galería de fotos con widget embed de Flickr (sin costo de API)",
             "Imágenes optimizadas en WebP con Astro Image y lazy loading",
             "Diseño responsive para móvil, tablet y desktop",
-            "Open Graph y Twitter Cards optimizados"
+            "Open Graph y Twitter Cards optimizados",
         ],
-        tech: ["Astro", "TypeScript", "Tailwind CSS", "Vercel", "Resend", "Vercel Blob"],
+        tech: [
+            "Astro",
+            "TypeScript",
+            "Tailwind CSS",
+            "Vercel",
+            "Resend",
+            "Vercel Blob",
+        ],
         githubUrl: "https://github.com/NicoGuerrero11/SitioWeb_Carobra",
-        demoUrl: "https://www.carobra.com"
+        demoUrl: "https://www.carobra.com",
     },
     {
         tag: "API REST",
         title: "🏨 Booking API",
-        description: "API RESTful completa para gestión de reservas de habitaciones de hotel, con autenticación segura, sistema de roles y documentación interactiva.",
-        highlight: "14 tests automatizados con Jest · Validación de solapamiento de fechas · Swagger UI interactiva",
+        description:
+            "API RESTful completa para gestión de reservas de habitaciones de hotel, con autenticación segura, sistema de roles y documentación interactiva.",
+        highlight:
+            "14 tests automatizados con Jest · Validación de solapamiento de fechas · Swagger UI interactiva",
         features: [
             "Autenticación JWT con hashing Argon2 y sistema de roles (Admin/Usuario)",
             "Validación robusta de datos con Zod en todos los endpoints",
@@ -32,17 +43,28 @@ const projects = [
             "Paginación en endpoints de listado con índices optimizados",
             "Documentación Swagger/OpenAPI 3.0 con ejemplos y schemas reutilizables",
             "Connection pooling con Neon (PostgreSQL Serverless)",
-            "14 tests automatizados cubriendo casos críticos"
+            "14 tests automatizados cubriendo casos críticos",
         ],
-        tech: ["TypeScript", "Express", "PostgreSQL", "Drizzle ORM", "Zod", "JWT", "Argon2", "Jest"],
+        tech: [
+            "TypeScript",
+            "Express",
+            "PostgreSQL",
+            "Drizzle ORM",
+            "Zod",
+            "JWT",
+            "Argon2",
+            "Jest",
+        ],
         githubUrl: "https://github.com/NicoGuerrero11/booking-API",
-        demoUrl: ""
+        demoUrl: "",
     },
     {
         tag: "OPTIMIZACIÓN",
         title: "🌤️ Weather API + Redis Cache",
-        description: "API wrapper meteorológica con caché Redis, soporte Docker completo y monitoreo de performance en tiempo real. Basada en el proyecto Weather API de roadmap.sh.",
-        highlight: "95-97% mejora de performance en requests cacheados · Degradación elegante si Redis no está disponible",
+        description:
+            "API wrapper meteorológica con caché Redis, soporte Docker completo y monitoreo de performance en tiempo real. Basada en el proyecto Weather API de roadmap.sh.",
+        highlight:
+            "95-97% mejora de performance en requests cacheados · Degradación elegante si Redis no está disponible",
         features: [
             "Caché Redis 7 con mejora de 95-97% en latencia de requests cacheados",
             "Endpoint /stats con estadísticas de caché en tiempo real",
@@ -50,28 +72,38 @@ const projects = [
             "Degradación elegante cuando Redis no está disponible",
             "Docker & Docker Compose para setup multi-contenedor",
             "Suite de tests con Jest + Supertest",
-            "Configuración flexible de entorno con soporte de unidades métricas"
+            "Configuración flexible de entorno con soporte de unidades métricas",
         ],
-        tech: ["Node.js", "Express 5", "Redis 7", "Docker", "Axios", "Jest", "Supertest"],
+        tech: [
+            "Node.js",
+            "Express 5",
+            "Redis 7",
+            "Docker",
+            "Axios",
+            "Jest",
+            "Supertest",
+        ],
         githubUrl: "https://github.com/NicoGuerrero11/weather-api",
-        demoUrl: ""
+        demoUrl: "",
     },
     {
         tag: "CLI TOOL",
         title: "🎬 TMDB CLI Tool",
-        description: "Herramienta de línea de comandos para buscar películas, series y actores usando la API de The Movie Database con interfaz colorida y profesional.",
-        highlight: "UX destacada con tablas coloridas, caché local y múltiples formatos de salida",
+        description:
+            "Herramienta de línea de comandos para buscar películas, series y actores usando la API de The Movie Database con interfaz colorida y profesional.",
+        highlight:
+            "UX destacada con tablas coloridas, caché local y múltiples formatos de salida",
         features: [
             "Búsqueda de películas, series y personas",
             "Información detallada con ratings",
             "Contenido en tendencia (día/semana)",
             "Interfaz colorida con Rich",
-            "Sistema de caché local"
+            "Sistema de caché local",
         ],
         tech: ["Python", "Click", "Rich", "Requests", "TMDB API"],
-        githubUrl: "https://github.com/NicoGuerrero11/TMDB-CLI-Tool",
-        demoUrl: ""
-    }
+        githubUrl: "https://github.com/NicoGuerrero11/TMBD-CLI-Tool",
+        demoUrl: "",
+    },
 ];
 ---
 
@@ -81,9 +113,7 @@ const projects = [
         <p class="section-subtitle">Algunos de mis trabajos recientes</p>
 
         <div class="projects-grid">
-            {projects.map(project => (
-                <ProjectCard {...project} />
-            ))}
+            {projects.map((project) => <ProjectCard {...project} />)}
         </div>
     </div>
 </section>
