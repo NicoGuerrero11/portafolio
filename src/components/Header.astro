@@ -5,10 +5,11 @@
     <nav class="container">
         <div class="logo">{'<NG />'}</div>
         <ul class="nav-links">
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
+            <li><a href="#about" data-i18n="header.about">Sobre mí</a></li>
+            <li><a href="#projects" data-i18n="header.projects">Proyectos</a></li>
+            <li><a href="#contact" data-i18n="header.contact">Contacto</a></li>
         </ul>
+        <button id="lang-toggle" class="lang-toggle" onclick="window.__toggleLang()" aria-label="Toggle language">EN</button>
     </nav>
 </header>
 
@@ -51,6 +52,26 @@
 
     .nav-links a:hover {
         color: var(--accent);
+    }
+
+    .lang-toggle {
+        background: var(--code-bg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--accent);
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        letter-spacing: 0.05em;
+    }
+
+    .lang-toggle:hover {
+        border-color: var(--accent);
+        background: rgba(0, 255, 135, 0.1);
+        transform: translateY(-1px);
     }
 
     @media (max-width: 768px) {
