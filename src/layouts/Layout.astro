@@ -21,6 +21,10 @@ const { title, description = "Desarrollador Backend especializado en Node.js, Py
 <body>
     <slot />
     <script>
+        import { inject } from '@vercel/analytics';
+        inject();
+    </script>
+    <script>
         import { applyTranslations, getLang } from '../i18n/i18n';
         import { toggleLang } from '../i18n/i18n';
 
